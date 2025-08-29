@@ -1,0 +1,43 @@
+---
+title: "Clase2_medicinas"
+format: html
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+library(fpp3)
+```
+
+Alt + "-"
+```{r}
+medicinas <- read.csv("datos/medicinas (1).csv")
+medicinas
+
+```
+
+
+Ctrl + Shift + M = |> 
+
+```{r}
+# Convertir a tsible
+medicinas <- medicinas |> 
+  mutate(fecha = yearmonth(fecha)) |> 
+  as_tsibble(index = fecha)
+
+medicinas
+```
+
+```{r}
+medicinas |> 
+  autoplot(Cost)
+```
+
+
+
+
+
+
+
+
+
